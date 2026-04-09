@@ -84,3 +84,29 @@ dizionario = {parola: lista.count(parola) for parola in lista}
 print(dizionario)
 
 '''
+
+# map
+'''
+lista = [1, 3, 6]
+dizionario = {0:"zero", 1:"uno", 2:"due", 3:"tre", 4:"quattro", 5:"cinque" , 6:"sei", 7:"sette", 8:"otto", 9:"nove"}
+comprehention = [dizionario[n] for n in lista]
+
+mappata = list(map(lambda n: dizionario[n], lista))
+print(comprehention, mappata)
+'''
+
+#filter
+'''
+lista = [1,2,3,4,5,6,7,8,9]
+comp = [n for n in lista if n%2 == 0]
+filtrato = list(filter(lambda n: n%2==0, lista))
+print(comp, filtrato)
+'''
+#reduce
+'''
+from functools import reduce
+
+prodotto = reduce((lambda x, y: x*y), [1, 2, 3, 4])
+print(prodotto)
+#in pratica fa 1 * 2 = 2 * 3 = 6 * 4 = 24
+'''
