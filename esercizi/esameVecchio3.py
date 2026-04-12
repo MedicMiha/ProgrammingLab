@@ -6,28 +6,22 @@ class CSVTimeSeriesFile():
         
     def getData(self, paese):
         letto = open(self.nome, "r")
-        
+        lista = []
         for riga in letto:
-            rigaPulita = riga.strip('\n')
-            #print(rigaPulita)
+            pulita = riga.strip('\n')
+            rigaPulita = pulita.strip(';')
             colonne = rigaPulita.split(',')
-            #print(colonne[1])
-            print(f"num colonne: {len(colonne)} | colonne: {colonne}")
-            '''if len(colonne) == 3:
-                continue
-                
-            anno = colonne[0]
-            temp = colonne[1]
-            colonnaPaese = colonne[2]
             
-            if temp == '':
-                continue
-            
-            #print(colonnaPaese)
-            if colonnaPaese == paese:
-                print(anno)'''
-           
-        letto.close() 
+            if not colonne == ['','',''] and len(colonne) == 3:
+                anno = colonne[0]
+                temp = colonne[1]
+                colonnaPaese = colonne[2]
+                if colonnaPaese == paese:
+                    lista.append([anno, temp])
+        letto.close()
+        return lista
+        
             
 TSF = CSVTimeSeriesFile(nomeFile)
-time_serie = TSF.getData("Italia")
+time_serie = TSF.getData("Italy")
+print(time_serie)
