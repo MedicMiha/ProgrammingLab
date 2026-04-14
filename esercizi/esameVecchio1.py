@@ -1,5 +1,3 @@
-import os
-
 class CSVTimeSeriesFiles():
     def __init__(self, nomeFile):
         self.nome = nomeFile
